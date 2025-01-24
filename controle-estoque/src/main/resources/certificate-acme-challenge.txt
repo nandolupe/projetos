@@ -1,0 +1,63 @@
+---
+account_uri: https://acme-v02.api.letsencrypt.org/acme/acct/557512666
+    authorizations:
+      '*.studynow.tec.br':
+        challenges:
+        - status: pending
+          token: UA4KxVpQB4iVzucg0k_M4e9kX7CCP3ANSHFLYLgFtDc
+          type: dns-01
+          url: https://acme-v02.api.letsencrypt.org/acme/chall-v3/268768749716/AvPvMA
+        expires: '2023-10-05T12:40:50Z'
+        identifier:
+          type: dns
+          value: cabal5.net
+        status: pending
+        uri: https://acme-v02.api.letsencrypt.org/acme/authz-v3/268768749716
+        wildcard: true
+      studynow.tec.br:
+        challenges:
+        - status: pending
+          token: 82lIAT-SxbOFbJXCfcDDdZ8c5EoTC_zyqRuKxAORMaI
+          type: http-01
+          url: https://acme-v02.api.letsencrypt.org/acme/chall-v3/268768749726/sn8sVQ
+        - status: pending
+          token: 82lIAT-SxbOFbJXCfcDDdZ8c5EoTC_zyqRuKxAORMaI
+          type: dns-01
+          url: https://acme-v02.api.letsencrypt.org/acme/chall-v3/268768749726/MnZpOg
+        - status: pending
+          token: 82lIAT-SxbOFbJXCfcDDdZ8c5EoTC_zyqRuKxAORMaI
+          type: tls-alpn-01
+          url: https://acme-v02.api.letsencrypt.org/acme/chall-v3/268768749726/pUHKuw
+        expires: '2023-10-05T12:40:50Z'
+        identifier:
+          type: dns
+          value: cabal5.net
+        status: pending
+        uri: https://acme-v02.api.letsencrypt.org/acme/authz-v3/268768749726
+    cert_days: -1
+    challenge_data:
+      '*.studynow.tec.br':
+        dns-01:
+          record: _acme-challenge.studynow.tec.br
+          resource: _acme-challenge
+          resource_value: LOg5D5c70RK7pJo5ZM91tIbWJUzelcW4mrc9tdievJ0
+      studynow.tec.br:
+        dns-01:
+          record: _acme-challenge.studynow.tec.br
+          resource: _acme-challenge
+          resource_value: 1C3xidg4E_YAsR4i3fT0-gafHucpv0JXc_Nytc6HzbA
+        http-01:
+          resource: .well-known/acme-challenge/82lIAT-SxbOFbJXCfcDDdZ8c5EoTC_zyqRuKxAORMaI
+          resource_value: 82lIAT-SxbOFbJXCfcDDdZ8c5EoTC_zyqRuKxAORMaI.joXWuxGsAbbKA_9QisP5ThcoDJs0sqHnsfr1Td6tewg
+        tls-alpn-01:
+          resource: cabal5.net
+          resource_original: dns:cabal5.net
+          resource_value: 1C3xidg4E/YAsR4i3fT0+gafHucpv0JXc/Nytc6HzbA=
+    challenge_data_dns:
+      _acme-challenge.cabal5.net:
+      - LOg5D5c70RK7pJo5ZM91tIbWJUzelcW4mrc9tdievJ0
+      - 1C3xidg4E_YAsR4i3fT0-gafHucpv0JXc_Nytc6HzbA
+    changed: true
+    failed: false
+    finalize_uri: https://acme-v02.api.letsencrypt.org/acme/finalize/557512666/211445202326
+    order_uri: https://acme-v02.api.letsencrypt.org/acme/order/557512666/211445202326

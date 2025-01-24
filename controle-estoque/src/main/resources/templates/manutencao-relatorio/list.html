@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	layout:decorate="~{layouts/template-logado}">
+
+<div layout:fragment="breadcrumb">
+	<div class="d-flex justify-content-between align-items-center">
+	  <ol>
+	    <li><a href="/index" th:text="#{company.name}"></a></li>
+	    <li th:text="#{manutencao.default.label}" ></li >
+	    <li th:text="#{manutencao.relatorio.label}"></li >
+	    <li th:text="#{manutencao.listagem.label}"></li >
+	  </ol>
+	</div>	
+</div >
+
+
+<th:block layout:fragment="page_content">
+	<form id="searchForm" action="#" th:action="@{/relatorio/list}" method="get">
+
+		
+		<!-- Page Heading -->
+	    <h1 class="h3 mb-4 text-gray-800" th:text="#{manutencao.relatorio.label.h2}"></h1>
+	
+	    <!-- DataTales Example -->
+	    <div class="card shadow mb-4">
+	        <div class="card-body">
+	            <div class="table-responsive">
+	                <table class="table table-bordered table-striped">
+	                    <thead>
+		                      <tr>
+	                            <th style="width: 30%;">Nome Relatório</th>
+	                            <th >Descrição</th>
+	                            <th style="width: 5%;">Ação</th>
+	                        	</tr>
+	                    </thead>
+	                    <tbody>
+	                    	<tr>
+								<td>Relatório de Produtos</td>
+								<td >Relatório com todos os produtos em formato CSV</td>
+								<td >
+									<a th:href="@{/relatorio/produtos}" class="btn btn-primary"><i class="fas fa-play"></i></a>
+								</td>	
+	                        </tr>
+	                        <tr>
+								<td>Relatório de Movimentação de Estoque</td>
+								<td >Relatório com toda Movimentação de Estoque de todos os produtos em formato CSV</td>
+								<td >
+									<a th:href="@{/relatorio/movimentacao-estoque}" class="btn btn-primary"><i class="fas fa-play"></i></a>
+								</td>	
+	                        </tr>
+	                    </tbody>
+	                </table>
+	                
+	            </div>
+	        </div>
+	    </div>
+    </form >
+</th:block>
+
+<th:block layout:fragment="script-post">
+
+</th:block>
