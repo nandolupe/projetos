@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+
+<form action="#" th:action="${usuario.id == null} ? @{/usuario/add} : @{/usuario/update/{id}(id=${usuario.id})}" th:object="${usuario}" method="post">
+    <input type="hidden" th:field="*{id}" id="id" />
+	<h1 class="h3 mb-4 text-gray-800">Manutenção de Usuário</h1>
+
+	<input type="hidden" th:field="*{id}" id="id" />
+	
+	<table>
+		
+		<tr>
+			<td style="width: 150px;"><label for="nome" class="col-form-label">Nome Usuario</label></td>
+			<td>
+				<input type="text" th:field="*{nome}" class="form-control text-uppercase" id="nome" placeholder="Nome">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+			</td>
+		</tr>
+		<tr>
+			<td><label for="sobrenome" class="col-form-label">Sobrenome</label></td>
+			<td>
+				<input type="text" th:field="*{sobrenome}" class="form-control text-uppercase" id="sobrenome" placeholder="Sobrenome">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></div>
+			</td>	
+		</tr>
+		
+		<tr>
+			<td><label for="idade" class="col-form-label">Idade</label></td>
+			<td>
+				<input type="text" th:field="*{idade}" class="form-control text-uppercase" id="idade" placeholder="Idade">
+				<div class="alert alert-warning invalid-tooltip active" th:if="${#fields.hasErrors('idade')}" th:errors="*{idade}"></div>
+			</td>	
+		</tr>
+		
+		<tr>
+			<td><label for="email" class="col-form-label">E-mail</label></td>
+			<td>
+				<input type="text" th:field="*{email}" class="form-control text-uppercase" id="email" placeholder="Email">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+			</td>	
+		</tr>
+		
+		<tr>
+			<td><label for="cidade" class="col-form-label">Cidade</label></td>
+			<td>
+				<input type="text" th:field="*{cidade}" class="form-control text-uppercase" id="cidade" placeholder="Cidade">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}"></div>
+			</td>	
+		</tr>
+	</table>
+	<br />
+	<div>
+		<input type="submit" class="btn btn-primary float-right" value="Salvar">
+		<a href="/usuario/list" class="btn btn-primary float-right mr-1">Voltar</a>
+	</div>
+	
+</form>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+
+<style>
+	
+	table {
+		width: 70%;
+	}
+	
+	table thead tr th {
+		border: 1px solid black;
+		background-color: darkgray;
+	}
+	
+	table tbody tr td {
+		border: 1px solid black;
+	}
+</style>
+
+<form id="searchForm" action="#" th:action="@{/usuario/search}" th:object="${principalObject}" method="post">
+		
+	<input type="hidden" th:field="*{size}" class="form-control" id="size" />
+	<input type="hidden" th:field="*{pageNumber}" class="form-control" id="pageNumber" />
+	
+    <h1 class="h3 mb-4 text-gray-800" >Lista de Usuários</h1>
+
+	<div>
+		<input type="text" th:field="*{data.nome}" class="form-control text-uppercase" id="data.nome" placeholder="Nome Usuario">
+		<button type="submit" class="btn btn-primary mr-1">Pesquisar</button>
+		<a href="/usuario/show-form" class="btn btn-primary">Adicionar</a>
+	</div>
+	
+	<br /><br />
+	
+    <table>
+        <thead>
+              <tr>
+                <th>Nome do Usuario</th>
+                <th>Sobrenome</th>
+                <th style="width: 5%;">Idade</th>
+                <th>Email</th>
+                <th>Cidade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr th:if="${principalList == null || principalList.size == 0}">
+            	<td colspan="6" style="text-align: center;" >Nenhum Usuário Encontrado</td>
+	        </tr>
+        	<tr th:each="objectReturn : ${principalList}">
+                <td th:text="${objectReturn.nome}"></td>
+                <td th:text="${objectReturn.sobrenome}"></td>
+				<td th:text="${objectReturn.idade}"></td>
+				<td th:text="${objectReturn.email}"></td>
+				<td th:text="${objectReturn.cidade}"></td>
+                <td style="text-align: center;">
+                	<a th:href="@{/usuario/edit/{id}(id=${objectReturn.id})}" class="btn btn-primary">Edit</a> | 
+                	<a th:href="@{/usuario/delete/{id}(id=${objectReturn.id})}" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form >
