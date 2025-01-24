@@ -58,7 +58,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" sec:authorize="hasRole('EMPRESA_ADMIN')" >
+            <li class="nav-item" >
                 <a class="nav-link" href="#"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -67,15 +67,13 @@
                 <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"  data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Manutenções:</h6>
-						<a class="collapse-item" href="/produto/list" sec:authorize="hasRole('EMPRESA_ADMIN')" >Cadastrar Produto</a>
-						<a class="collapse-item" href="/produto/list" sec:authorize="hasRole('ROLE_EMPRESA_ESTOQUISTA')" >Cadastrar Produto</a>
-						<a class="collapse-item" href="/produto/list" sec:authorize="hasRole('ROLE_EMPRESA_OPERACIONAL')" >Cadastrar Produto</a>
+						<a class="collapse-item" href="/produto/list" >Cadastro de Produto</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="hasRole('EMPRESA_ADMIN')" >
                 <a class="nav-link" href="#" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -85,10 +83,10 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrativo:</h6>
-                        <a class="collapse-item" href="/empresa/list" sec:authorize="hasRole('INTERNO_ADMIN')" >Cadastrar Empresa</a>
-						<a class="collapse-item" href="/usuario/list" sec:authorize="hasRole('INTERNO_ADMIN')" >Cadastrar Usuario</a>
-						<a class="collapse-item" href="/usuario/list" sec:authorize="hasRole('EMPRESA_ADMIN')" >Cadastrar Usuario</a>
-						<a class="collapse-item" href="/papel/list" sec:authorize="hasRole('INTERNO_ADMIN')" >Cadastrar Papel</a>
+                        <a class="collapse-item" href="/empresa/list" sec:authorize="hasRole('INTERNO_ADMIN')" >Cadastro de Empresa</a>
+						<a class="collapse-item" href="/usuario/list" sec:authorize="hasRole('INTERNO_ADMIN')" >Cadastro de Usuario</a>
+						<a class="collapse-item" href="/usuario/list" sec:authorize="hasRole('EMPRESA_ADMIN')" >Cadastro de Usuario</a>
+						<a class="collapse-item" href="/papel/list" sec:authorize="hasRole('INTERNO_ADMIN')" >Cadastro de Papel</a>
 						<a class="collapse-item" href="/notificacao/list" sec:authorize="hasRole('EMPRESA_ADMIN')" >Notificações</a>
 						<a class="collapse-item" href="/estoque-produto/list" sec:authorize="hasRole('EMPRESA_ADMIN')" >Movimentação de Estoque</a>            
 						<a class="collapse-item" href="/relatorio/list" sec:authorize="hasRole('EMPRESA_ADMIN')" >Relatórios</a>
