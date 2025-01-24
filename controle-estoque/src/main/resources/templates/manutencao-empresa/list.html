@@ -57,7 +57,7 @@
 							</tr>
 						</thead>
 	                    <tbody>
-	                    	<tr th:if="${principalList.empty}">
+	                    	<tr th:if="${principalList == null || principalList.size == 0}">
 				            	<td colspan="5" th:text="#{manutencao.empresa.label.not-found}" ></td>
 					        </tr>
 	                        <tr th:each="objectReturn : ${principalList}">
