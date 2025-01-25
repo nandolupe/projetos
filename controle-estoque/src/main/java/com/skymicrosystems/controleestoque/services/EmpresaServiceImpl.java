@@ -2,9 +2,13 @@ package com.skymicrosystems.controleestoque.services;
 
 import java.util.Optional;
 
+import javax.persistence.criteria.Predicate;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.skymicrosystems.controleestoque.model.Empresa;
@@ -22,7 +26,29 @@ public class EmpresaServiceImpl {
     
     public Page<Empresa> searchPaginate(Empresa empresa, Pageable pageable) {
     	
-		return empresaRepository.findAll(pageable);
+		return empresaRepository.findAll(
+				this.defaultSearchSpec(empresa), 
+				pageable);
+	}
+    
+    private Specification<Empresa> defaultSearchSpec(Empresa empresa) {
+		return (root, query, criteriaBuilder) -> {
+			
+			Predicate predicate = null;
+			
+			if (empresa != null) {
+				if (StringUtils.isNotBlank(empresa.getCnpjCpf())) {
+					predicate = 
+							criteriaBuilder
+							.and(criteriaBuilder
+									.like(criteriaBuilder.upper(
+											root.get("cnpjCpf")), 
+											"%" + empresa.getCnpjCpf().toUpperCase() + "%"), 
+									predicate);
+				}
+			}
+			return predicate;
+		};
 	}
     
     public Optional<Empresa> findById(Long id) {

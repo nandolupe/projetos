@@ -57,7 +57,7 @@
 							</tr>
 						</thead>
 	                    <tbody>
-	                    	<tr th:if="${principalList == null || principalList.size == 0}">
+	                    	<tr th:if="${principalList.empty}">
 				            	<td colspan="5" th:text="#{manutencao.empresa.label.not-found}" ></td>
 					        </tr>
 	                        <tr th:each="objectReturn : ${principalList}">
@@ -71,8 +71,8 @@
 	                            </td>
 	                        </tr>
 	                    </tbody>
-	                </table>
-	                
+	                    <th:block layout:insert="fragments/pageable-list-footer(colspan=5)"></th:block>
+	                </table> 
 	            </div>
 	        </div>
 	    </div>

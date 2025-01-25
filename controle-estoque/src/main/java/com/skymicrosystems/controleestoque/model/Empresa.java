@@ -25,7 +25,8 @@ public class Empresa extends AuditModel {
 	 */
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idEmpresa")
 	private Long idEmpresa;
 	
 	private String cnpjCpf;
@@ -43,11 +44,11 @@ public class Empresa extends AuditModel {
 	private String status;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idEndereco")
+    @JoinColumn(name = "idEndereco", referencedColumnName = "idEndereco")
 	private Endereco endereco;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idContato")
+    @JoinColumn(name = "idContato", referencedColumnName = "idContato")
 	private Contato contato;
 	
 	@OneToOne(mappedBy = "empresa", optional = true)
