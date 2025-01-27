@@ -19,17 +19,17 @@
 	}
 </style>
 
-<form id="searchForm" action="#" th:action="@{/usuario/search}" th:object="${principalObject}" method="post">
+<form id="searchForm" action="#" th:action="@{/orcamento/search}" th:object="${principalObject}" method="post">
 		
 	<input type="hidden" th:field="*{size}" class="form-control" id="size" />
 	<input type="hidden" th:field="*{pageNumber}" class="form-control" id="pageNumber" />
 	
-    <h1 class="h3 mb-4 text-gray-800" >Lista de Usuários</h1>
+    <h1 class="h3 mb-4 text-gray-800" >Lista de Orcamentos</h1>
 
 	<div>
-		<input type="text" th:field="*{data.nome}" class="form-control text-uppercase" id="data.nome" placeholder="Nome Usuario">
+		<input type="text" th:field="*{data.nomeCliente}" class="form-control text-uppercase" id="data.nomeCliente" placeholder="Nome do Cliente">
 		<button type="submit" class="btn btn-primary mr-1">Pesquisar</button>
-		<a href="/usuario/show-form" class="btn btn-primary">Adicionar</a>
+		<a href="/orcamento/show-form" class="btn btn-primary">Adicionar</a>
 	</div>
 	
 	<br /><br />
@@ -37,31 +37,28 @@
     <table>
         <thead>
               <tr>
-                <th>Nome do Usuario</th>
-                <th>Sobrenome</th>
-                <th style="width: 5%;">Idade</th>
-                <th>Email</th>
-                <th>Cidade</th>
+				<th>Código</th>
+                <th>Nome do Cliente</th>
+                <th>Data Emissão</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         	<tr th:if="${principalList == null || principalList.size == 0 || principalList.empty}">
-            	<td colspan="6" style="text-align: center;" >Nenhum Usuário Encontrado</td>
+            	<td colspan="6" style="text-align: center;" >Nenhum Orcamento Encontrado</td>
 	        </tr>
         	<tr th:each="objectReturn : ${principalList}">
-                <td th:text="${objectReturn.nome}"></td>
-                <td th:text="${objectReturn.sobrenome}"></td>
-				<td th:text="${objectReturn.idade}"></td>
-				<td th:text="${objectReturn.email}"></td>
-				<td th:text="${objectReturn.cidade}"></td>
+                <td th:text="${objectReturn.codigo}"></td>
+                <td th:text="${objectReturn.nomeCliente}"></td>
+				<td th:text="${objectReturn.dataEmissao}"></td>
                 <td style="text-align: center;">
-                	<a th:href="@{/usuario/edit/{id}(id=${objectReturn.id})}" class="btn btn-primary">Edit</a> | 
-                	<a th:href="@{/usuario/delete/{id}(id=${objectReturn.id})}" class="btn btn-primary">Delete</a>
+                	<a th:href="@{/orcamento/edit/{id}(id=${objectReturn.idOrcamento})}" class="btn btn-primary">Edit</a> | 
+                	<a th:href="@{/orcamento/delete/{id}(id=${objectReturn.idOrcamento})}" class="btn btn-primary">Delete</a>
                 </td>
             </tr>
         </tbody>
     </table>
+    
     <br />
     
 	<div>

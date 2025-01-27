@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+
+<form action="#" th:action="${produto.idProduto == null} ? @{/produto/add} : @{/produto/update/{id}(id=${produto.idProduto})}" th:object="${produto}" method="post">
+	
+	<h1 class="h3 mb-4 text-gray-800">Manutenção de Produto</h1>
+
+	<input type="hidden" th:field="*{idProduto}" id="idProduto" />
+	
+	<table>
+		
+		<tr>
+			<td style="width: 150px;"><label for="codigo" class="col-form-label">Código</label></td>
+			<td>
+				<input type="text" th:field="*{codigo}" class="form-control text-uppercase" id="codigo" placeholder="Código">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+			</td>
+		</tr>
+		<tr>
+			<td><label for="nomeProduto" class="col-form-label">Nome Produto</label></td>
+			<td>
+				<input type="text" th:field="*{nomeProduto}" class="form-control text-uppercase" id="sobrenome" placeholder="Nome Produto">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('nomeProduto')}" th:errors="*{nomeProduto}"></div>
+			</td>	
+		</tr>
+		
+		<tr>
+			<td><label for="valorCusto" class="col-form-label">Valor Custo</label></td>
+			<td>
+				<input type="text" th:field="*{valorCusto}" class="form-control text-uppercase" id="idade" placeholder="Valor Custo">
+				<div class="alert alert-warning invalid-tooltip active" th:if="${#fields.hasErrors('valorCusto')}" th:errors="*{valorCusto}"></div>
+			</td>	
+		</tr>
+		
+		<tr>
+			<td><label for="valorVenda" class="col-form-label">Valor Venda</label></td>
+			<td>
+				<input type="text" th:field="*{valorVenda}" class="form-control text-uppercase" id="valorVenda" placeholder="Valor Venda">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('valorVenda')}" th:errors="*{valorVenda}"></div>
+			</td>	
+		</tr>
+
+	</table>
+	<br />
+	<div>
+		<input type="submit" class="btn btn-primary float-right" value="Salvar">
+		<a href="/produto/list" class="btn btn-primary float-right mr-1">Voltar</a>
+	</div>
+	
+</form>

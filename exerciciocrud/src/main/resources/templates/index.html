@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+
+	<style>
+		
+		table {
+			width: 30%;
+		}
+		
+		table thead tr th {
+			border: 1px solid black;
+			background-color: darkgray;
+		}
+		
+		table tbody tr td {
+			border: 1px solid black;
+			text-align: center;
+		}
+	</style>
+	<body>
+		<h1 class="h3 mb-4 text-gray-800" >Menu Principal</h1>
+		
+		<table>
+		    <thead>
+		          <tr>
+		            <th>Funcionalidades</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	<tr>
+		            <td><a th:href="@{/usuario/list}">Cadastro de Usuários</a></td>
+		        </tr>
+		        <tr>
+		            <td><a th:href="@{/produto/list}">Cadastro de Produtos</a></td>
+		        </tr>
+		        <tr>
+		            <td><a th:href="@{/orcamento/list}">Cadastro de Orçamento</a></td>
+		        </tr>
+		    </tbody>
+		</table>
+	</body>
+</html>
